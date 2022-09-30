@@ -1,0 +1,9 @@
+# spring.sql.init.mode: always
+# spring.sql.init.platform: postgres
+# spring.datasource.url: ${PG_JDBC_URL}
+# spring.datasource.username: ${PG_USERNAME}
+# spring.datasource.password: ${PG_PASSWORD}
+
+# # For developmento only
+# spring.jpa.hibernate.ddl-auto: update
+# spring.jpa.hibernate.naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
