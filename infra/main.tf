@@ -29,7 +29,7 @@ resource "random_integer" "affix" {
 ### Group ###
 
 resource "azurerm_resource_group" "default" {
-  name     = "rg-${local.project}-"
+  name     = "rg-${local.project}"
   location = var.location
 }
 
@@ -87,5 +87,5 @@ resource "azurerm_search_service" "default" {
   name                = "srch-${local.project}"
   resource_group_name = azurerm_resource_group.default.name
   location            = azurerm_resource_group.default.location
-  sku                 = "basic"
+  sku                 = var.search_sku
 }

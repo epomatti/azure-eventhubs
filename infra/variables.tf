@@ -3,6 +3,8 @@ variable "location" {
   default = "eastus"
 }
 
+### Event Hub ###
+
 variable "sku" {
   type    = string
   default = "Standard"
@@ -31,4 +33,10 @@ variable "interval_in_seconds" {
 variable "size_limit_in_bytes" {
   type    = number
   default = 10485760
+}
+
+### Search ###
+variable "search_sku" {
+  type    = string
+  default = "basic"
 }
