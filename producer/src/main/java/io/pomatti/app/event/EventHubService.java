@@ -3,7 +3,7 @@ package io.pomatti.app.event;
 import java.util.Arrays;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.azure.messaging.eventhubs.EventData;
@@ -14,18 +14,12 @@ import com.azure.messaging.eventhubs.EventHubProducerClient;
 @Service
 public class EventHubService {
 
-  // private static final String connectionString = "<Event Hubs namespace
-  // connection string>";
-  // private static final String eventHubName = "<Event hub name>";
-
-  @Value("${azure.eventhub.connectionString}")
-  private String connectionString;
-  @Value("${azure.eventhub.name}")
-  private String eventHubName;
+  @Autowired
+  private Config config;
 
   public void publishEvents() {
-
-    System.out.println(connectionString);
+    var connectionString = config.getConnectionString();
+    var eventHubName = config.getEventHubName();
 
     EventHubProducerClient producer = new EventHubClientBuilder()
         .connectionString(connectionString, eventHubName)

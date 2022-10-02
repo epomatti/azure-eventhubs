@@ -1,19 +1,17 @@
 # azure-eventhub
 
-
-mvn spring-boot:run -Dspring-boot.run.profiles=dev
-
-```sh
-az eventhubs namespace show -n "evh-eventprocessor-NNNN" -g "rg-eventprocessor-NNNN"
-```
-
-az eventhubs namespace show -n "evh-eventprocessor-6389" -g "rg-eventprocessor-6389"
-
+Add variables to your session:
 
 ```sh
-export AZURE_EVENTHUB_CONNECTION_STRING=
-export AZURE_EVENTHUB_NAME=
+export AZURE_EVENTHUB_CONNECTION_STRING="Endpoint={endpoint};SharedAccessKeyName={sharedAccessKeyName};SharedAccessKey={sharedAccessKey};EntityPath={entityPath}"
+export AZURE_EVENTHUB_NAME="evh-eventprocessor"
 ```
+
+```sh
+mvn spring-boot:run
+```
+
+
 
 
 

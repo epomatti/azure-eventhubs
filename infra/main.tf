@@ -18,7 +18,8 @@ provider "azurerm" {
 ### Locals ###
 
 locals {
-  project = "eventprocessor-${random_integer.affix.result}"
+  project = "eventprocessor"
+  affix   = "${local.project}-${random_integer.affix.result}"
 }
 
 resource "random_integer" "affix" {
@@ -52,7 +53,7 @@ resource "azurerm_storage_container" "events" {
 ### Event Hub ###
 
 resource "azurerm_eventhub_namespace" "default" {
-  name                = "evhns-${local.project}"
+  name                = "evhns-${local.affix}"
   location            = azurerm_resource_group.default.location
   resource_group_name = azurerm_resource_group.default.name
   sku                 = var.sku
@@ -84,7 +85,7 @@ resource "azurerm_eventhub" "default" {
 ### Search ###
 
 resource "azurerm_search_service" "default" {
-  name                = "srch-${local.project}"
+  name                = "srch-${local.affix}"
   resource_group_name = azurerm_resource_group.default.name
   location            = azurerm_resource_group.default.location
   sku                 = var.search_sku
