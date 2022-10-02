@@ -34,9 +34,3 @@ variable "size_limit_in_bytes" {
   type    = number
   default = 10485760
 }
-
-### Search ###
-variable "search_sku" {
-  type    = string
-  default = "basic"
-}

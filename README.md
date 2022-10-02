@@ -1,4 +1,11 @@
-# azure-eventhub
+# Azure Event Hub
+
+Create the infrastructure:
+
+```sh
+terraform init
+terraform apply -auto-approve
+```
 
 Add variables to your session:
 
@@ -7,12 +14,12 @@ export AZURE_EVENTHUB_CONNECTION_STRING="Endpoint={endpoint};SharedAccessKeyName
 export AZURE_EVENTHUB_NAME="evh-eventprocessor"
 ```
 
+Start the application:
+
 ```sh
 mvn spring-boot:run
 ```
 
+Send a POST to http://localhost:8080/api/events/
 
-
-
-
-https://learn.microsoft.com/en-us/azure/search/search-blob-storage-integration
+Data should be sent to the Storage in `Avro` format.

@@ -3,7 +3,10 @@ package io.pomatti.app.event;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
+import lombok.Data;
+
 @Configuration
+@Data
 public class Config {
 
   @Value("${azure.eventhub.connectionString}")
@@ -11,21 +14,5 @@ public class Config {
 
   @Value("${azure.eventhub.name}")
   private String eventHubName;
-
-  public String getConnectionString() {
-    return connectionString;
-  }
-
-  public void setConnectionString(String connectionString) {
-    this.connectionString = connectionString;
-  }
-
-  public String getEventHubName() {
-    return eventHubName;
-  }
-
-  public void setEventHubName(String eventHubName) {
-    this.eventHubName = eventHubName;
-  }
 
 }
