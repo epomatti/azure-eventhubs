@@ -1,10 +1,28 @@
-# Azure Event Hub
+# Azure Event Hubs
+
+Event Hubs with capture that writes events to storage.
+
+Create the `.auto.tfvars` file:
+
+```sh
+cp infra/templates/sample.tfvars infra/.auto.tfvars
+```
 
 Create the infrastructure:
 
 ```sh
-terraform init
-terraform apply -auto-approve
+terraform -chdir="infra" init
+terraform -chdir="infra" apply -auto-approve
+```
+
+Run this to quickly get access to the access key:
+
+```sh
+az eventhubs namespace authorization-rule keys list \
+    --name RootManageSharedAccessKey \
+    -g rg-eventprocessor \
+    --namespace-name evhns-eventprocessor-2069 \
+    --query primaryConnectionString -o tsv
 ```
 
 Add variables to your session:

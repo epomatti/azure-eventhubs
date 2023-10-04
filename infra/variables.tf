@@ -5,32 +5,32 @@ variable "location" {
 
 ### Event Hub ###
 
-variable "sku" {
+variable "evh_sku" {
   type    = string
   default = "Standard"
 }
 
-variable "capacity" {
+variable "evh_capacity" {
   type    = number
   default = 1
 }
 
-variable "partition_count" {
+variable "evh_partition_count" {
   type    = number
   default = 2
 }
 
-variable "message_retention" {
+variable "evh_message_retention" {
   type    = number
   default = 1
 }
 
-variable "interval_in_seconds" {
+variable "evh_interval_in_seconds" {
   type    = number
   default = 60
 }
 
-variable "size_limit_in_bytes" {
+variable "evh_size_limit_in_bytes" {
   type    = number
   default = 10485760
 }
