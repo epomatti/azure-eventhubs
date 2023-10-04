@@ -21,9 +21,8 @@ public class ProducerApplication {
 	}
 
 	@PostMapping("/")
-	public Event post(@RequestBody Event order) {
+	public void post(@RequestBody Event order) {
 		eventHub.publishEvents();
-		return new Event();
 	}
 
 }

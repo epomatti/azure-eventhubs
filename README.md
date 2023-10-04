@@ -28,7 +28,7 @@ az eventhubs namespace authorization-rule keys list \
 Add variables to your session:
 
 ```sh
-export AZURE_EVENTHUB_CONNECTION_STRING="Endpoint={endpoint};SharedAccessKeyName={sharedAccessKeyName};SharedAccessKey={sharedAccessKey};EntityPath={entityPath}"
+export AZURE_EVENTHUB_CONNECTION_STRING='Endpoint={endpoint};SharedAccessKeyName={sharedAccessKeyName};SharedAccessKey={sharedAccessKey};EntityPath={entityPath}'
 export AZURE_EVENTHUB_NAME="evh-eventprocessor"
 ```
 
@@ -38,6 +38,10 @@ Start the application:
 mvn spring-boot:run
 ```
 
-Send a POST to http://localhost:8080/api/events/
+Send events to Event Hubs:
+
+```sh
+curl -X POST -H "Content-Type: application/json" -d '{"id":"123"}' localhost:8080/api/events/
+```
 
 Data should be sent to the Storage in `Avro` format.
